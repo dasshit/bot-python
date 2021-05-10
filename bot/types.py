@@ -71,3 +71,34 @@ class InlineKeyboardMarkup(Dictionaryable, JsonSerializable):
 
     def to_dic(self):
         return self.keyboard
+
+
+class TextFormatter:
+
+    format_dict = {
+        "b": "*",
+        "bold": "*",
+        "i": "_",
+        "italic": "_",
+        "u": "__",
+        "underline": "__",
+        "s": "~",
+        "strikethrough": "~",
+        "c": "`",
+        "code": "`",
+        "p": "```",
+        "pre": "```"
+    }
+
+    @staticmethod
+    def text(text, symbol):
+        symbol = TextFormatter.format_dict[symbol]
+        return f'{symbol}{text}{symbol}'
+
+    @staticmethod
+    def link(text, link):
+        return f'[{text}]({link})'
+
+    @staticmethod
+    def user(link):
+        return f'@[{link}]'
