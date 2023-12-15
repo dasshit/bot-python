@@ -214,7 +214,7 @@ class Filter(object):
     url = URLFilter()
     text = message & ~(command | sticker | file | url)
     regexp = RegexpFilter
-    mention = MentionFilter
+    mention = MentionFilter()
     forward = ForwardFilter()
     reply = ReplyFilter()
     sender = SenderFilter
